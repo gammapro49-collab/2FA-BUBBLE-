@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Floating 2FA Authenticator",
+  "short_name": "Floating2FA",
+  "description": "Secure Floating Bubble 2FA Authenticator with live RFC 6238 TOTP codes",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#020617",
+  "background_color": "#020617",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

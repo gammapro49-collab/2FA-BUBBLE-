@@ -1,0 +1,6 @@
+{
+  "name": "Floating 2FA",
+  "description": "Native Android 2FA Authenticator in Kotlin Jetpack Compose with draggable floating overlay bubble, RFC 6238 TOTP codes, and complete Android Studio project generator.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
