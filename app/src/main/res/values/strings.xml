@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Floating 2FA</string>
+    <string name="bubble_notification_title">Floating 2FA is active</string>
+    <string name="bubble_notification_desc">Tap floating bubble to access your verification codes</string>
+</resources>

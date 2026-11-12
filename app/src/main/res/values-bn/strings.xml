@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ফ্লোটিং ২এফএ</string>
+    <string name="bubble_notification_title">ফ্লোটিং ২এফএ সক্রিয় আছে</string>
+    <string name="bubble_notification_desc">ভেরিফিকেশন কোড দেখতে ভাসমান বাবলে চাপুন</string>
+</resources>
