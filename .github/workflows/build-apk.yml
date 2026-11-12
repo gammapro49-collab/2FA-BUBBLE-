@@ -2,9 +2,7 @@ name: Build Floating 2FA Android APK
 
 on:
   push:
-    branches: [ "**" ]
   pull_request:
-    branches: [ "**" ]
   workflow_dispatch:
 
 permissions:
@@ -12,46 +10,26 @@ permissions:
 
 jobs:
   build:
-    name: Build Android APK
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@v3
 
-      - name: Setup Gradle 8.4
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: '8.4'
+      - uses: gradle/actions/setup-gradle@v3
 
       - name: Build Debug APK
-        run: gradle assembleDebug --stacktrace --no-daemon
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace --no-daemon
 
-      - name: Upload APK as Artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: Floating-2FA-Debug-APK
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 30
-
-      - name: Create GitHub Release with APK
-        continue-on-error: true
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v1.0.0-${{ github.run_number }}
-          name: Floating 2FA v1.0.0 (Build #${{ github.run_number }})
-          body: |
-            ## 📱 Floating 2FA - Android APK Release
-            Download the `app-debug.apk` file attached below and install it directly on your Android phone.
-          files: app/build/outputs/apk/debug/*.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
